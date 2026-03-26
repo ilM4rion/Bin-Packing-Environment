@@ -1,12 +1,16 @@
-from solvers.abstract_solver import AbstractSolver
+from solver_000000.abstract_solver import AbstractSolver
+from solver_000000.additional_script import AdditionalScript
 
-class DummySolver(AbstractSolver):
+class solver_000000(AbstractSolver):
 
     def __init__(self, inst):
         super().__init__(inst)
         self.name = 'DummySolver'
 
     def solve(self):
+        additional_script = AdditionalScript()
+        additional_script.doNothing()
+
         for idx, row in self.inst.df_items.iterrows():
             self.sol['type_vehicle'].append(0)
             self.sol['idx_vehicle'].append(self.idx_vehicle)
@@ -16,3 +20,5 @@ class DummySolver(AbstractSolver):
             self.sol['z_origin'].append(0)
             self.sol['orient'].append(row.allowedRotations[0])
             self.idx_vehicle += 1
+        
+        self.write_solution_to_file()

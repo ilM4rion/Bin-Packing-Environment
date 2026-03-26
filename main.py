@@ -1,11 +1,10 @@
 from instances import Instance
-from solvers import DummySolver
+from solver_000000 import solver_000000
 
 if __name__ == '__main__':
     dataset_name = 'DatasetA'
     inst = Instance(dataset_name)
     #inst.transform()
-    solver = DummySolver(inst)
+    solver = solver_000000(inst)
 
     t = solver.solve()
-    solver.write_solution_to_file()
