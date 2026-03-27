@@ -6,3 +6,6 @@ __pycache__/
 
 # Ignore everything inside any results/ directory
 results/*
+
+# But keep this specific file
+!results/.gitkeep
